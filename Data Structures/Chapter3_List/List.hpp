@@ -49,7 +49,7 @@ public:
     ListNodePosi(T) find(T const& e, int n, ListNodePosi(T) p) const;//无序区间查找
     
     ListNodePosi(T) search(T const& e) const {return  search(e, _size, trailer);}
-    ListNodePosi(T) search(T const& e, int n, ListNodePosi(T) p) const;//有序区间查找
+    ListNodePosi(T) search(T const& e, int n, ListNodePosi(T) p) const;//在有序列表内节点p（可能是trailer）的n个（真）前驱中，找到不大于e的最者
     
     ListNodePosi(T) selectMax(ListNodePosi(T) p, int n);
     ListNodePosi(T) selectMax() {return selectMax(header->succ, _size);}
@@ -68,13 +68,14 @@ public:
     void sort() {sort(first(), _size);}
     
     int deduplicate();
-    int uniquify();
+    int uniquify(); //惟一化
     void reverse();
     
     //遍历
     void traverse(void(*)(T&));//遍历，依次实施visit操作（函数指针，只读或局部性修改）
     template <typename VST> //操作器
     void traverse(VST &);   //遍历，依次实施visit操作（函数对象，可全局性修改）
+
 };
 
 
@@ -196,6 +197,23 @@ int List<T>::deduplicate() {
     return oldSize - size();
 }
 
+//向量有序化时，数据相同的结点也必然在（逻辑上）彼此相邻
+template <typename T>
+int List<T>::uniquify() {
+    if (size() < 2) {
+        return 0;
+    }
+    
+    int oldSize = size();
+    ListNodePosi(T) p; ListNodePosi(T) q;
+    for (p = header->succ; trailer != q; p = q,q = q->succ) {
+        if (p->data == q->data) {
+            remove(q);
+            q = p;
+        }
+    }
+    return oldSize - size();
+}
 template <typename T>
 void List<T>::traverse(void (*)(T &)) {
     for (ListNodePosi(T) p = header->succ; p != trailer; p = p->succ) {
@@ -207,5 +225,14 @@ void List<T>::traverse(VST &) {
     for (ListNodePosi(T) p = header->succ; p != trailer; p = p->succ) {
         visit(p->data);
     }
+}
+
+template <typename T>
+ListNodePosi(T) List<T>::search(const T &e, int n, ListNode<T> *p) const {
+    assert(0 <= n && n <= Rank(p));
+    while (0 <= n--) {
+        if (((p = p->pred)->data) <= e) break;
+    }
+    return p;
 }
 #endif /* List_hpp */
