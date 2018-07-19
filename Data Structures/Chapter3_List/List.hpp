@@ -36,6 +36,8 @@ public:
     List(ListNodePosi(T) p , int n);
     
     ~List();
+    
+public:
     Rank size() const {return _size;}
     bool empty() const {return _size <= 0;}
     T& operator[](Rank r)const; //重载，支持循秩访问（效率低）

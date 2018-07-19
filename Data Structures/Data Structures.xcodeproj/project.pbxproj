@@ -7,11 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A724BE620EE21F300BC26EC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A724BE520EE21F300BC26EC /* main.cpp */; };
+		0A724BED20EE22FE00BC26EC /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A724BEA20EE220800BC26EC /* gtest.framework */; };
 		A518C5391DC7522000BEF286 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A518C5381DC7522000BEF286 /* main.cpp */; };
 		A518C5461DC7524D00BEF286 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A518C5451DC7524D00BEF286 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		0A724BE120EE21F300BC26EC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		A518C5331DC7522000BEF286 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A724BE320EE21F300BC26EC /* Data Structures Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Data Structures Tests"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A724BE520EE21F300BC26EC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0A724BEA20EE220800BC26EC /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = gtest.framework; sourceTree = SOURCE_ROOT; };
 		A518C5351DC7522000BEF286 /* Data Structures */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Data Structures"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A518C5381DC7522000BEF286 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A518C5431DC7524D00BEF286 /* Chapter3_List */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Chapter3_List; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +56,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0A724BE020EE21F300BC26EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A724BED20EE22FE00BC26EC /* gtest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A518C5321DC7522000BEF286 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,12 +81,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A724BE420EE21F300BC26EC /* Data Structures Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0A724BEA20EE220800BC26EC /* gtest.framework */,
+				0A724BE520EE21F300BC26EC /* main.cpp */,
+			);
+			path = "Data Structures Tests";
+			sourceTree = "<group>";
+		};
+		0A724BEC20EE22FE00BC26EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A518C52C1DC7522000BEF286 = {
 			isa = PBXGroup;
 			children = (
 				A518C5371DC7522000BEF286 /* Data Structures */,
 				A518C5441DC7524D00BEF286 /* Chapter3_List */,
+				0A724BE420EE21F300BC26EC /* Data Structures Tests */,
 				A518C5361DC7522000BEF286 /* Products */,
+				0A724BEC20EE22FE00BC26EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +113,7 @@
 			children = (
 				A518C5351DC7522000BEF286 /* Data Structures */,
 				A518C5431DC7524D00BEF286 /* Chapter3_List */,
+				0A724BE320EE21F300BC26EC /* Data Structures Tests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,6 +139,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0A724BE220EE21F300BC26EC /* Data Structures Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A724BE920EE21F300BC26EC /* Build configuration list for PBXNativeTarget "Data Structures Tests" */;
+			buildPhases = (
+				0A724BDF20EE21F300BC26EC /* Sources */,
+				0A724BE020EE21F300BC26EC /* Frameworks */,
+				0A724BE120EE21F300BC26EC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Data Structures Tests";
+			productName = "Data Structures Tests";
+			productReference = 0A724BE320EE21F300BC26EC /* Data Structures Tests */;
+			productType = "com.apple.product-type.tool";
+		};
 		A518C5341DC7522000BEF286 /* Data Structures */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A518C53C1DC7522000BEF286 /* Build configuration list for PBXNativeTarget "Data Structures" */;
@@ -141,6 +199,10 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Zeek;
 				TargetAttributes = {
+					0A724BE220EE21F300BC26EC = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+					};
 					A518C5341DC7522000BEF286 = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
@@ -165,11 +227,20 @@
 			targets = (
 				A518C5341DC7522000BEF286 /* Data Structures */,
 				A518C5421DC7524D00BEF286 /* Chapter3_List */,
+				0A724BE220EE21F300BC26EC /* Data Structures Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0A724BDF20EE21F300BC26EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A724BE620EE21F300BC26EC /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A518C5311DC7522000BEF286 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +260,60 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		0A724BE720EE21F300BC26EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0A724BE820EE21F300BC26EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A518C53A1DC7522000BEF286 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -311,6 +436,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A724BE920EE21F300BC26EC /* Build configuration list for PBXNativeTarget "Data Structures Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A724BE720EE21F300BC26EC /* Debug */,
+				0A724BE820EE21F300BC26EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A518C5301DC7522000BEF286 /* Build configuration list for PBXProject "Data Structures" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
