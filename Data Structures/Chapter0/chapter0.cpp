@@ -10,12 +10,10 @@
 
 
 int _sum(std::array<int, 2> array, int count) {
-    if (count >= 2) {
-        return _sum(array, count - 1) + array[count - 1];
-    } else if (count == 1) {
-        return array[0];
-    } else {
+    if (count < 1) {
         return 0;
+    } else {
+        return _sum(array, count - 1) + array[count - 1];
     }
 }
 
