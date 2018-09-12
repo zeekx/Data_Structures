@@ -6,9 +6,7 @@
 //  Copyright © 2018年 Zeek. All rights reserved.
 //
 
-#include <iostream>
 #include <gtest/gtest.h>
-
 
 int main(int argc, const char * argv[]) {
     ::testing::InitGoogleTest(&argc, (char **)&argv);

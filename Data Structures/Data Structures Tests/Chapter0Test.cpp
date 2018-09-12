@@ -5,10 +5,9 @@
 //  Created by Milo on 2018/8/30.
 //  Copyright © 2018年 Zeek. All rights reserved.
 //
+
 #include <gtest/gtest.h>
 #include "../Chapter0/chapter0.hpp"
-
-
 namespace  {
     TEST(Sum, Empty) {
         ASSERT_EQ(sum({}), 0);
@@ -28,4 +27,3 @@ namespace  {
         ASSERT_EQ(arr[4], 1);
     }
 }
-

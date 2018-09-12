@@ -19,6 +19,13 @@ namespace {
         Stack<int> stack_;
     };
     
+    TEST_F(StackTest, empty) {
+        int input = 3;
+        ASSERT_TRUE(stack_.empty());
+        stack_.push(input);
+        ASSERT_FALSE(stack_.empty());
+    }
+    
     TEST_F(StackTest, push) {
         int input = 3;
         stack_.push(input);

@@ -9,7 +9,7 @@
 #ifndef Stack_hpp
 #define Stack_hpp
 
-#include <stdio.h>
+#include <algorithm>
 #include <vector>
 template <typename T> class Stack: public std::vector<T> {
 public: void push(T const &e) {
@@ -25,5 +25,10 @@ public: T pop() {
 public: T& top() {
     return (*this)[this->size() - 1];
 }
+    
+public: bool find(const T& e) {
+    return std::find(std::begin(*this), std::end(*this), e) != std::end(*this);
+    }
+
 };
 #endif /* Stack_hpp */

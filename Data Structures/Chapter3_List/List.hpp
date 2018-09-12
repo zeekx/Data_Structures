@@ -182,7 +182,8 @@ int List<T>::clear() {
     while (0 < size()) {
         remove(header->succ);
     }
-    remove(oldSize);
+//    remove(oldSize);
+    return oldSize;
 }
 
 template <typename T>
