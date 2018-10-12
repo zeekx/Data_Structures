@@ -44,3 +44,18 @@ void reverse(std::array<int, 5> *pArray, int low, int high) {
     return _reverse_R(pArray, low, high);
 }
 
+
+int _fib_r(int n, int& prev) {
+    if (0 == n) {
+        prev = 1;
+        return 0;
+    } else {
+        int prevPrev; prev = _fib_r(n-1, prevPrev);
+        return prevPrev + prev;
+    }
+}
+
+int fib(int n) {
+    int prev = 0;
+    return _fib_r(n, prev);
+}

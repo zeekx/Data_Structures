@@ -22,6 +22,11 @@ namespace {
         EXPECT_EQ(list->size(), 1);
     }
     
+    TEST_F(ListTest, insertAnObject) {
+        List<std::string> list = List<std::string>();
+        list.insertAsLast("");
+        ASSERT_TRUE(list[0] == "");
+    }
     
     TEST_F(ListTest, remove) {
         List<int> *list = new List<int>();

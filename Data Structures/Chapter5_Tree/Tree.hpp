@@ -183,4 +183,5 @@ void travPre_R(BinNodePosi(T) x, VST& visit) {
     travPre_R(x->lChild, visit);
     travPre_R(x->rChild, visit);
 }
+
 #endif /* Tree_hpp */

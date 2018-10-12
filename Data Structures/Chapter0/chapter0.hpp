@@ -15,4 +15,7 @@
 int sum(std::array<int, 2>);
 
 void reverse(std::array<int, 5> *pArray, int low, int high);
+
+int fib(int n, int& prev);
+
 #endif /* chapter0_hpp */

@@ -16,6 +16,7 @@ namespace  {
     TEST(Sum, _1_plus_2) {
         ASSERT_EQ(sum({1, 2}), 3);
     }
+
     
     TEST(Reverse, simple) {
         std::array<int, 5> arr = {1, 2, 3, 4, 5};
