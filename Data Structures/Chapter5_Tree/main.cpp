@@ -8,8 +8,17 @@
 
 #include <iostream>
 #include "Tree.hpp"
+#include "Visit.hpp"
+#include "BinNode.hpp"
+
 using namespace std;
 int main(int argc, const char * argv[]) {
-
+    BinTree<int> tree;
+    tree.insertAsRoot(10);
+    tree.insertAsLC(tree.root(), 11);
+    tree.insertAsRC(tree.root(), 12);
+    
+//    Visit<int> v;
+    tree.travPre("");
     return 0;
 }

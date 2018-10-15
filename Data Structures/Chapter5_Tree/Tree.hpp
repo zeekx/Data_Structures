@@ -9,7 +9,7 @@
 #ifndef Tree_hpp
 #define Tree_hpp
 
-#include <stdio.h>
+#include <iostream>
 #include <algorithm>
 #include "BinNode.hpp"
 
@@ -179,7 +179,8 @@ int BinTree<T>::remove(BinNode<T> * x) {
 template <typename T, typename VST>
 void travPre_R(BinNodePosi(T) x, VST& visit) {
     if (!x) return;
-    visit(x->data);
+//    visit(x->data);
+    std::cout << x->data << " ";
     travPre_R(x->lChild, visit);
     travPre_R(x->rChild, visit);
 }
