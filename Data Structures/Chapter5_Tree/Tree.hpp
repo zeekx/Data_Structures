@@ -12,7 +12,7 @@
 #include <iostream>
 #include <algorithm>
 #include "BinNode.hpp"
-
+#include "Visitor.hpp"
 
 
 template <typename T> class BinTree {
@@ -187,4 +187,21 @@ void travPre_R(BinNodePosi(T) x, VST& visit) {
     travPre_R(x->rChild, visit);
 }
 
+template <typename T, typename VST>
+void travIn_R(BinNodePosi(T) x, VST& visit) {
+    if (!x) return;
+    
+    travIn_R(x->lChild, visit);
+    visit(x->data);
+    travIn_R(x->rChild, visit);
+}
+
+
+template <typename T, typename VST>
+void travPost_R(BinNodePosi(T) x, VST& visit) {
+    if (!x) return;
+    travPost_R(x->lChild, visit);
+    travPost_R(x->rChild, visit);
+    visit(x->data);
+}
 #endif /* Tree_hpp */

@@ -15,6 +15,7 @@
 		0A23019F217830D0002AD5F3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A23019E217830D0002AD5F3 /* main.cpp */; };
 		0A2301B62178686B002AD5F3 /* Visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A2301B42178686B002AD5F3 /* Visitor.cpp */; };
 		0A2301B72178686B002AD5F3 /* Visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A2301B42178686B002AD5F3 /* Visitor.cpp */; };
+		0A2301B821788095002AD5F3 /* Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F21382148E872004FFBDE /* Queue.cpp */; };
 		0A3AFED2213CE6D900D50F09 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A3AFED1213CE6D900D50F09 /* main.cpp */; };
 		0A3AFED9213E2A3300D50F09 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A3AFED6213E2A3300D50F09 /* Tree.cpp */; };
 		0A3AFEDD213E32C600D50F09 /* BinNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A3AFEDA213E32C600D50F09 /* BinNode.cpp */; };
@@ -630,6 +631,7 @@
 				0A2301B72178686B002AD5F3 /* Visitor.cpp in Sources */,
 				0A3AFEDD213E32C600D50F09 /* BinNode.cpp in Sources */,
 				0A3AFED2213CE6D900D50F09 /* main.cpp in Sources */,
+				0A2301B821788095002AD5F3 /* Queue.cpp in Sources */,
 				0A3AFED9213E2A3300D50F09 /* Tree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <cstdlib>
+#include "Queue.hpp"
 
 #define BinNodePosi(T) BinNode<T>* //节点位置
 #define stature(p) ((p) ? (p)->height : -1) //节点高度（和“空树高度为-1”约定一致）
@@ -139,4 +140,21 @@ void BinNode<T>::travIn(VST & visit) {
     }
 }
 
+
+template <typename T> template <typename VST>
+void BinNode<T>::travLevel(VST &visit) {
+    Queue<BinNodePosi(T)> queue;
+    queue.enqueue(this);
+    while (!queue.empty()) {
+        auto node = queue.dequeue();
+        visit(node->data);
+        if (HasLChild(*node)) {
+            queue.enqueue(node->lChild);
+        }
+        
+        if (HasRChild(*node)) {
+            queue.enqueue(node->rChild);
+        }
+    }
+}
 #endif /* BinNode_hpp */
