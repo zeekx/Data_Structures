@@ -13,6 +13,8 @@
 #include <algorithm>
 #include "BinNode.hpp"
 
+
+
 template <typename T> class BinTree {
 protected:
     int _size;
@@ -102,6 +104,7 @@ public:
     bool operator== (BinTree<T> const& t) {
         return _root && t._root && (_root == t._root);
     }
+    
 };
 
 template <typename T>
@@ -179,8 +182,7 @@ int BinTree<T>::remove(BinNode<T> * x) {
 template <typename T, typename VST>
 void travPre_R(BinNodePosi(T) x, VST& visit) {
     if (!x) return;
-//    visit(x->data);
-    std::cout << x->data << " ";
+    visit(x->data);
     travPre_R(x->lChild, visit);
     travPre_R(x->rChild, visit);
 }

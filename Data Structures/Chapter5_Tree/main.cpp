@@ -8,8 +8,9 @@
 
 #include <iostream>
 #include "Tree.hpp"
-#include "Visit.hpp"
 #include "BinNode.hpp"
+#include "Visitor.hpp"
+
 
 using namespace std;
 int main(int argc, const char * argv[]) {
@@ -17,8 +18,7 @@ int main(int argc, const char * argv[]) {
     tree.insertAsRoot(10);
     tree.insertAsLC(tree.root(), 11);
     tree.insertAsRC(tree.root(), 12);
-    
-//    Visit<int> v;
-    tree.travPre("");
+    Visitor<int> visitor;
+    travPre_R(tree.root(), visitor);
     return 0;
 }
