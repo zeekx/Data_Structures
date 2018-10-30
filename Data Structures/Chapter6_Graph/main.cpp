@@ -7,9 +7,28 @@
 //
 
 #include <iostream>
+#include "Graph.hpp"
+#include "GraphMatrix.hpp"
+
+class A {
+public:
+    virtual void f() = 0;
+    virtual void f2() = 0;
+};
+
+class B: public A {
+public:
+    virtual void f() {
+        
+    }
+};
+
+
 
 int main(int argc, const char * argv[]) {
+    GraphMatrix<char, int> graph;
     
+//    B b;
 
     return 0;
 }
