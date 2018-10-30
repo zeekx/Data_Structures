@@ -19,25 +19,21 @@ public:
      * @return: The first position of target. Position starts from 0.
      */
     int binarySearch(vector<int> &nums, int target) {
-        if (nums.empty()) {
+        int low = -1, high = (int)nums.size();
+        while (low + 1 != high) {
+            int mid = ((high - low) >> 1) + low;
+            if (nums[mid] < target) {
+                low = mid;
+            } else {
+                high = mid;
+            }
+
+        }
+        int i = high;
+        if (i >= nums.size() || nums[i] != target) {
             return -1;
         }
-        size_t low = 0, high = nums.size() - 1;
-        while (low <= high) {
-            size_t mid = ((high - low) >> 1) + low;
-            if (nums[mid] >= target) {
-                if (low == high) {
-                    return (int)mid;
-                }
-                high = (nums[mid] == target) ? mid : mid - 1;
-            } else if (nums[mid] < target) {
-                low = mid + 1;
-            }
-//            else {
-//                high = mid - 1;
-//            }
-        }
-        return -1;
+        return i;
     }
 };
 
