@@ -8,8 +8,23 @@
 
 #include <iostream>
 
+long long trailingZeros(long long n) {
+    // write your code here, try to do it without arithmetic operators.
+    long long c = 0;
+    while (n > 4) {
+        c += (n / 5);
+        n /= 5;
+    }
+    
+    return c;
+}
+
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    assert(trailingZeros(11) == 2);
+    assert(trailingZeros(29) == 6);
+    assert(trailingZeros(100) == 24);
+    
+    assert(trailingZeros(1001171717) == 250292920);
+    
     return 0;
 }

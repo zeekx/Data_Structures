@@ -95,6 +95,12 @@ namespace {
         ASSERT_EQ(subtree->root()->rChild->data, 22);
     }
     
+    TEST_F(BinTreeTest, travePrev_R) {
+        MockVisitor<char> visitor;
+        travPre_R(charTree.root(), visitor);
+        ASSERT_EQ(visitor.out, "idcabhfeglkjnmpo");
+    }
+    
     TEST_F(BinTreeTest, traveIn) {
         MockVisitor<char> visitor;
         travIn_R(charTree.root(), visitor);
@@ -106,6 +112,13 @@ namespace {
         charTree.travLevel(visitor);
         ASSERT_EQ(visitor.out, "idlchknafjmpbego");
     }
+    
+    TEST_F(BinTreeTest, travePrev_I) {
+        MockVisitor<char> visitor;
+        travPre_I(charTree.root(), visitor);
+        ASSERT_EQ(visitor.out, "idcabhfeglkjnmpo");
+    }
+
     
 }
 #pragma clang diagnostic pop

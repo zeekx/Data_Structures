@@ -229,7 +229,7 @@ void di(Stack<Queen>* queens, const int size) {
                 col = 0;
             } else {
                col = queens->pop().position.y + 1;
-                i -= 2;// huisu
+                i -= 2;// Backtracking
             }
         }//for
 }

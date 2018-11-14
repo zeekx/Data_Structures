@@ -13,8 +13,8 @@
 #include <algorithm>
 #include "BinNode.hpp"
 #include "Visitor.hpp"
-
-
+#include "../Chapter4_Stack/Stack.hpp"
+#include <vector>
 template <typename T> class BinTree {
 protected:
     int _size;
@@ -181,7 +181,9 @@ int BinTree<T>::remove(BinNode<T> * x) {
 
 template <typename T, typename VST>
 void travPre_R(BinNodePosi(T) x, VST& visit) {
-    if (!x) return;
+    if (!x) {
+      return;
+    }
     visit(x->data);
     travPre_R(x->lChild, visit);
     travPre_R(x->rChild, visit);
@@ -204,4 +206,61 @@ void travPost_R(BinNodePosi(T) x, VST& visit) {
     travPost_R(x->rChild, visit);
     visit(x->data);
 }
+
+template <typename T, typename VST>
+void travPre_I_My(BinNodePosi(T) x, VST& visit) {
+    Stack<BinNodePosi(T)> stack;
+    while (true) {
+        visit(x->data);
+        if (x->rChild != nullptr) {
+            stack.push(x->rChild);
+        }
+        if (x->lChild != nullptr) {
+            x = x->lChild;
+        } else {
+            if (stack.empty()) {
+                return;
+            }
+            x = stack.pop();
+        }
+    }
+}
+
+template <typename T, typename VST>
+void travPre_I_teacher(BinNodePosi(T) x, VST& visit) {
+    Stack<BinNodePosi(T)> stack;
+    if(x != nullptr) {
+        stack.push(x);
+    }
+    while (!stack.empty()) {
+        auto node = stack.pop();
+        visit(node->data);
+        if (node->rChild != nullptr) {
+            stack.push(node->rChild);
+        }
+        if (node->lChild != nullptr) {
+            stack.push(node->lChild);
+        }
+    }
+}
+template <typename T, typename VST>
+void travPre_I(BinNodePosi(T) root, VST& visit) {
+    std::vector<T> result;
+    std::vector<BinNodePosi(T)> stack;
+    if(root != nullptr) {
+        stack.push_back(root);
+    }
+while (!stack.empty()) {
+    BinNodePosi(T) node = stack.back();
+    result.push_back(node->data);
+    stack.pop_back();
+    if (node->rChild != nullptr) {
+        stack.push_back(node->rChild);
+    }
+    if (node->lChild != nullptr) {
+        stack.push_back(node->lChild);
+    }
+}
+}
+
 #endif /* Tree_hpp */
