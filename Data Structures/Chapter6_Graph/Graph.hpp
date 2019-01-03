@@ -17,7 +17,7 @@ typedef enum { UNDETERMINED, TREE, CROSS, FORWARD, BACKWARD } EStatus; //边状�
 template <typename Tv, typename Te> //顶点类型、边类型
 class Graph { //图Graph模板类
 private:
-void reset() { //所有顶点、边癿辅劣信息复位
+void reset() { //所有顶点、边的辅助信息复位
     for (int i=0; i<n; i++) {//所有顶点
         status(i) = UNDISCOVERED;
         dTime(i) = fTime(i) = -1; //状态，时间标签
@@ -29,12 +29,11 @@ void reset() { //所有顶点、边癿辅劣信息复位
             }
         
     }//for
-    
 }
 void BFS(int, int&); //(连通域)广度优先搜索算法
 void DFS(int, int&); //(连通域)深度优先搜索算法
-void BCC(int, int&, Stack<int>&); //(连通域)基亍DFS癿双连通分量分解算法
-bool TSort(int, int&, Stack<Tv>*); //(连通域)基亍DFS癿拓扑排序算法
+void BCC(int, int&, Stack<int>&); //(连通域)基亍DFS的双连通分量分解算法
+bool TSort(int, int&, Stack<Tv>*); //(连通域)基亍DFS的拓扑排序算法
 template <typename PU>
 void PFS(int, PU); //(连通域)优先级搜索框架
 public:

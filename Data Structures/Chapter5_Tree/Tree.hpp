@@ -208,7 +208,7 @@ void travPost_R(BinNodePosi(T) x, VST& visit) {
 }
 
 template <typename T, typename VST>
-void travPre_I_My(BinNodePosi(T) x, VST& visit) {
+void travPre_I(BinNodePosi(T) x, VST& visit) {
     Stack<BinNodePosi(T)> stack;
     while (true) {
         visit(x->data);
@@ -243,24 +243,54 @@ void travPre_I_teacher(BinNodePosi(T) x, VST& visit) {
         }
     }
 }
-template <typename T, typename VST>
-void travPre_I(BinNodePosi(T) root, VST& visit) {
-    std::vector<T> result;
-    std::vector<BinNodePosi(T)> stack;
-    if(root != nullptr) {
+
+template <typename T>
+void travIn_I_leftMost(BinNodePosi(T) root, std::vector<BinNodePosi(T)>& stack) {
+    while (root != nullptr) {
         stack.push_back(root);
+        root = root->lChild;
     }
-while (!stack.empty()) {
-    BinNodePosi(T) node = stack.back();
-    result.push_back(node->data);
-    stack.pop_back();
-    if (node->rChild != nullptr) {
-        stack.push_back(node->rChild);
-    }
-    if (node->lChild != nullptr) {
-        stack.push_back(node->lChild);
-    }
-}
 }
 
+template <typename T, typename VST>
+void travIn_I(BinNodePosi(T) root, VST& visit) {
+    std::vector<BinNodePosi(T)> stack;
+    while (true) {
+        travIn_I_leftMost(root, stack);
+        if (stack.empty()) {
+            break;
+        }
+        root = stack.back();
+        stack.pop_back();
+        visit(root->data);
+        root = root->rChild;
+    }
+}
+
+template <typename T>
+void travPo_I_leftMost(BinNodePosi(T) root, std::vector<BinNodePosi(T)>& stack) {
+    while (root->lChild != nullptr) {
+        stack.push_back(root);
+        root = root->lChild;
+    }
+}
+
+template <typename T, typename VST>
+void travePost_I(BinNodePosi(T) root, VST& visit) {
+    std::vector<BinNodePosi(T)> stack;
+    while (true) {
+        travPo_I_leftMost(root, stack);
+        if (stack.empty()) {
+            break;
+        }
+        root = stack.back();
+        visit(root->lChild->data);
+        root = root->rChild;
+        if (root == nullptr) {
+            root = stack.back();
+            stack.pop_back();
+            visit(root->data);
+        }
+    }
+}
 #endif /* Tree_hpp */

@@ -107,6 +107,12 @@ namespace {
         ASSERT_EQ(visitor.out, "abcdefghijklmnop");
     }
     
+    TEST_F(BinTreeTest, travePost_R) {
+        MockVisitor<char> visitor;
+        travPost_R(charTree.root(), visitor);
+        ASSERT_EQ(visitor.out, "bacegfhdjkmopnli");
+    }
+    
     TEST_F(BinTreeTest, traveLevel) {
         MockVisitor<char> visitor;
         charTree.travLevel(visitor);
@@ -119,6 +125,17 @@ namespace {
         ASSERT_EQ(visitor.out, "idcabhfeglkjnmpo");
     }
 
+    TEST_F(BinTreeTest, traveIn_I) {
+        MockVisitor<char> visitor;
+        travIn_I(charTree.root(), visitor);
+        ASSERT_EQ(visitor.out, "abcdefghijklmnop");
+    }
     
+    TEST_F(BinTreeTest, travePost_I) {
+        MockVisitor<char> visitor;
+        travePost_I(charTree.root(), visitor);
+        ASSERT_EQ(visitor.out, "bacegfhdjkmopnli");
+    }
+
 }
 #pragma clang diagnostic pop
