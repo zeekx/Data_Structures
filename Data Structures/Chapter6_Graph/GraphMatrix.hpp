@@ -10,6 +10,7 @@
 #define GraphMatrix_hpp
 #include "Graph.hpp"
 #include <vector>
+#include <string>
 
 
 template <typename Tv>
@@ -42,7 +43,7 @@ struct Edge {
     Edge(Te const& d, int w): data(d), weight(w), status(UNDETERMINED) {
         
     }
-
+    
 };
 
 template <typename Tv, typename Te>
@@ -104,16 +105,28 @@ public:
     
     virtual int insert(Tv const& vertex) {
         for (int j = 0; j < this->n; j++) {
-            E[j].insert(nullptr);
+            E[j].push_back(nullptr);
             this->n++;
         }
-        E.insert(std::vector<Edge<Te>*>(this->n, this->n, (Edge<Te>*)nullptr));
-        return V.insert(Vertex<Tv>(vertex));
+        E.push_back(std::vector<Edge<Te>*>(this->n, (Edge<Te>*)nullptr));
+        V.push_back(Vertex<Tv>(vertex));
+        return (int)V.size();
     }
-
-     //边(i, j)是否存在
+    
+    //边(i, j)是否存在
     virtual bool exists(int i, int j) {
-        return (0<=i) && (i< this->n) && (0<=j) && (j< this->n) && E[i][j] != nullptr;
+        return (0<=i) && (i< this->n)
+        && (0<=j) && (j< this->n)
+        && E[i][j] != nullptr;
+    }
+    
+    std::string description() {
+        std::string des = "";
+        for (Vertex<Tv> t : V) {
+                des += t.data;
+        }
+        des += "\n";
+        return des;
     }
 };
 

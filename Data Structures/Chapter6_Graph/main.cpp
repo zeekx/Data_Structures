@@ -27,8 +27,8 @@ public:
 
 int main(int argc, const char * argv[]) {
     GraphMatrix<char, int> graph;
-    
-//    B b;
-
+    graph.insert('a');
+    graph.insert('b');
+    std::cout << graph.description();
     return 0;
 }
