@@ -11,6 +11,8 @@
 		0A05057C218862C3003EF11F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A724BE520EE21F300BC26EC /* main.cpp */; };
 		0A0505802188729D003EF11F /* BinarySearch14.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A05057D2188729D003EF11F /* BinarySearch14.cpp */; };
 		0A050584218B076A003EF11F /* TwoSum56.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A0505752188605A003EF11F /* TwoSum56.cpp */; };
+		0A12CBAB21E4BDF300B76A7A /* Chapter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A12CBA921E4BDF300B76A7A /* Chapter3.cpp */; };
+		0A12CBAC21E4BDF300B76A7A /* Chapter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A12CBA921E4BDF300B76A7A /* Chapter3.cpp */; };
 		0A1F212821477CFB004FFBDE /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F212721477CFB004FFBDE /* List.cpp */; };
 		0A1F212B21477D0B004FFBDE /* ListNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F212A21477D0B004FFBDE /* ListNode.cpp */; };
 		0A1F21342148E854004FFBDE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F21332148E854004FFBDE /* main.cpp */; };
@@ -26,6 +28,8 @@
 		0A3AFED9213E2A3300D50F09 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A3AFED6213E2A3300D50F09 /* Tree.cpp */; };
 		0A3AFEDD213E32C600D50F09 /* BinNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A3AFEDA213E32C600D50F09 /* BinNode.cpp */; };
 		0A724BED20EE22FE00BC26EC /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A724BEA20EE220800BC26EC /* gtest.framework */; };
+		0AB305CB21F0893700722493 /* Ch12_make_shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0AB305C921F0893700722493 /* Ch12_make_shared.cpp */; };
+		0AB305CC21F0893700722493 /* Ch12_make_shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0AB305C921F0893700722493 /* Ch12_make_shared.cpp */; };
 		0AB37B9A214FCC8E008E4802 /* Chapter1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0AB37B97214FCC8E008E4802 /* Chapter1.cpp */; };
 		0AD3404B218DD99800BE38C5 /* TreeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F21232146424B004FFBDE /* TreeTest.cpp */; };
 		0AD4E2F82137E1CD00647F01 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4E2F72137E1CD00647F01 /* main.cpp */; };
@@ -141,6 +145,8 @@
 		0A05057D2188729D003EF11F /* BinarySearch14.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinarySearch14.cpp; sourceTree = "<group>"; };
 		0A05057E2188729D003EF11F /* BinarySearch14.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinarySearch14.hpp; sourceTree = "<group>"; };
 		0A0505812188742F003EF11F /* BinarySearch14Test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinarySearch14Test.cpp; sourceTree = "<group>"; };
+		0A12CBA921E4BDF300B76A7A /* Chapter3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Chapter3.cpp; sourceTree = "<group>"; };
+		0A12CBAA21E4BDF300B76A7A /* Chapter3.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Chapter3.hpp; sourceTree = "<group>"; };
 		0A1F21232146424B004FFBDE /* TreeTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TreeTest.cpp; sourceTree = "<group>"; };
 		0A1F2125214650B1004FFBDE /* StackApply.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StackApply.cpp; sourceTree = "<group>"; };
 		0A1F212721477CFB004FFBDE /* List.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = List.cpp; sourceTree = "<group>"; };
@@ -170,6 +176,8 @@
 		0A724BE320EE21F300BC26EC /* Data Structures Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Data Structures Tests"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A724BE520EE21F300BC26EC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0A724BEA20EE220800BC26EC /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = gtest.framework; sourceTree = SOURCE_ROOT; };
+		0AB305C921F0893700722493 /* Ch12_make_shared.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ch12_make_shared.cpp; sourceTree = "<group>"; };
+		0AB305CA21F0893700722493 /* Ch12_make_shared.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Ch12_make_shared.hpp; sourceTree = "<group>"; };
 		0AB37B97214FCC8E008E4802 /* Chapter1.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Chapter1.cpp; sourceTree = "<group>"; };
 		0AB37B98214FCC8E008E4802 /* Chapter1.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Chapter1.hpp; sourceTree = "<group>"; };
 		0AD4E2E82137DD0200647F01 /* Chapter0Test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Chapter0Test.cpp; sourceTree = "<group>"; };
@@ -375,6 +383,10 @@
 				0AB37B98214FCC8E008E4802 /* Chapter1.hpp */,
 				0AE06B8E21DF5CFE00FC415E /* Sales_data.cpp */,
 				0AE06B8F21DF5CFE00FC415E /* Sales_data.hpp */,
+				0A12CBA921E4BDF300B76A7A /* Chapter3.cpp */,
+				0A12CBAA21E4BDF300B76A7A /* Chapter3.hpp */,
+				0AB305C921F0893700722493 /* Ch12_make_shared.cpp */,
+				0AB305CA21F0893700722493 /* Ch12_make_shared.hpp */,
 			);
 			path = CPlusPrimer;
 			sourceTree = "<group>";
@@ -733,8 +745,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AD3404B218DD99800BE38C5 /* TreeTest.cpp in Sources */,
+				0AB305CB21F0893700722493 /* Ch12_make_shared.cpp in Sources */,
 				0AE06B9021DF5CFE00FC415E /* Sales_data.cpp in Sources */,
 				0A05057C218862C3003EF11F /* main.cpp in Sources */,
+				0A12CBAB21E4BDF300B76A7A /* Chapter3.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,8 +775,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE06B9121DF5CFE00FC415E /* Sales_data.cpp in Sources */,
+				0A12CBAC21E4BDF300B76A7A /* Chapter3.cpp in Sources */,
 				0AB37B9A214FCC8E008E4802 /* Chapter1.cpp in Sources */,
 				0A1F2177214B911B004FFBDE /* Chapter2_const.cpp in Sources */,
+				0AB305CC21F0893700722493 /* Ch12_make_shared.cpp in Sources */,
 				8C136B802139782600FB52F1 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
