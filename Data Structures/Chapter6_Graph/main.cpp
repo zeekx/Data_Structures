@@ -29,6 +29,7 @@ int main(int argc, const char * argv[]) {
     GraphMatrix<char, int> graph;
     graph.insert('a');
     graph.insert('b');
+    graph.insert('E', 3, 1, 1);
     std::cout << graph.description();
     return 0;
 }

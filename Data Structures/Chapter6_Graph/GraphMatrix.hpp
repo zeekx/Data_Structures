@@ -120,10 +120,29 @@ public:
         && E[i][j] != nullptr;
     }
     
+    virtual void insert(Te const& edge, int w, int i, int j) {
+        if (exists(i, j)) {
+            return;
+        }
+        E[i][j] = new Edge<Te>(edge, w);
+        this->e++;
+        V[i].outDegree++;
+        V[j].inDegree--;
+    }
+    
     std::string description() {
         std::string des = "";
         for (Vertex<Tv> t : V) {
                 des += t.data;
+        }
+        des += "\n";
+        
+        des += "Edges:\n";
+//        des += 'E';
+        for (auto vector : E) {
+            for (auto e : vector) {
+                des += e->data;
+            }
         }
         des += "\n";
         return des;
