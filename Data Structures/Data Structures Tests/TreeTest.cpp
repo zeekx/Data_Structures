@@ -12,6 +12,7 @@
 
 #include <gtest/gtest.h>
 #include "Tree.hpp"
+#include <string>
 
 namespace {
     template <typename T>
@@ -131,11 +132,38 @@ namespace {
         ASSERT_EQ(visitor.out, "abcdefghijklmnop");
     }
     
-    TEST_F(BinTreeTest, travePost_I) {
-        MockVisitor<char> visitor;
-        travePost_I(charTree.root(), visitor);
-        ASSERT_EQ(visitor.out, "bacegfhdjkmopnli");
-    }
+//    TEST_F(BinTreeTest, travePost_I) {
+//        MockVisitor<char> visitor;
+//        travePost_I(charTree.root(), visitor);
+//        ASSERT_EQ(visitor.out, "bacegfhdjkmopnli");
+//    }
 
+    TEST_F(BinTreeTest, expression) {
+        std::string exp("ab+cde+*+"); //a+b+c*(d+e)
+        std::string operators = "+*";
+
+        Stack<BinTree<char> *> stack;
+        for (auto ch : exp) {
+            if (operators.find(ch) != std::string::npos) {
+                auto tree = new BinTree<char>();
+                tree->insertAsRoot(ch);
+                
+                tree->attachAsRC(tree->root(), stack.pop());
+                tree->attachAsLC(tree->root(), stack.pop());
+                stack.push(tree);
+            } else if (std::isalpha(ch)) {
+                auto subtree = new BinTree<char>();
+                subtree->insertAsRoot(ch);
+                stack.push(subtree);
+            }
+        }
+        
+        MockVisitor<char> visitor;
+        if (!stack.empty()) {
+            travePost(stack.pop()->root(), visitor);
+        }
+        
+        ASSERT_EQ(exp, visitor.out);
+    }
 }
 #pragma clang diagnostic pop

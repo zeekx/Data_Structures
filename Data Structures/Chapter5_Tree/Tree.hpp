@@ -15,6 +15,14 @@
 #include "Visitor.hpp"
 #include "../Chapter4_Stack/Stack.hpp"
 #include <vector>
+
+#define release(ptr_) \
+const BinTree<char> *ptr = ptr_; \
+//        delete ptr_; \
+        ptr_ = nullptr; \
+
+
+
 template <typename T> class BinTree {
 protected:
     int _size;
@@ -104,8 +112,9 @@ public:
     bool operator== (BinTree<T> const& t) {
         return _root && t._root && (_root == t._root);
     }
-    
 };
+
+
 
 template <typename T>
 int BinTree<T>::updateHeight(BinNodePosi(T) x) {
@@ -146,7 +155,7 @@ BinNodePosi(T) BinTree<T>::insertAsRC(BinNodePosi(T) x, T const& e) {
 
 template <typename T>
 BinNodePosi(T) BinTree<T>::attachAsLC(BinNode<T> *x, BinTree<T> * tree) {
-    if (x->insertAsLC(tree)) {
+    if ((x->lChild = tree->root())) {
         x->lChild->parent = x;
     }
     
@@ -159,9 +168,11 @@ BinNodePosi(T) BinTree<T>::attachAsLC(BinNode<T> *x, BinTree<T> * tree) {
     return x;
 }
 
+
+
 template <typename T>
 BinNodePosi(T) BinTree<T>::attachAsRC(BinNode<T> *x, BinTree<T> * tree) {
-    if (x->insertAsRC(tree)) {
+    if ((x->rChild = tree->root())) {
         x->rChild->parent = x;
     }
     
@@ -201,7 +212,7 @@ void travIn_R(BinNodePosi(T) x, VST& visit) {
 
 template <typename T, typename VST>
 void travPost_R(BinNodePosi(T) x, VST& visit) {
-    if (!x) return;
+    if (x == nullptr) return;
     travPost_R(x->lChild, visit);
     travPost_R(x->rChild, visit);
     visit(x->data);
@@ -292,5 +303,16 @@ void travePost_I(BinNodePosi(T) root, VST& visit) {
             visit(root->data);
         }
     }
+}
+
+template <typename T, typename VST>
+void travePost(BinNodePosi(T) root, VST& visit) {
+    if (HasLChild(*root)) {
+        travePost(root->lChild, visit);
+    }
+    if (HasRChild(*root)) {
+        travePost(root->rChild, visit);
+    }
+    visit(root->data);
 }
 #endif /* Tree_hpp */

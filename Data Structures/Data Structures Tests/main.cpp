@@ -7,6 +7,7 @@
 //
 
 #include <gtest/gtest.h>
+#include <iostream>
 
 int main(int argc, const char * argv[]) {
     ::testing::InitGoogleTest(&argc, (char **)&argv);
