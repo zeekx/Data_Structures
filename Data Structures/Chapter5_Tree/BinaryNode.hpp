@@ -44,9 +44,8 @@ IsRoot(x) ? _root : ( \
 IsLChild(x) ? (x).parent->lChild : (x).parent->rChild) \
 )
 
-
-
 template <typename T> struct BinaryNode {
+
     T data;
     BinaryNodePosition(T) parent;
     BinaryNodePosition(T) lChild;
@@ -156,5 +155,19 @@ void BinaryNode<T>::travLevel(VST &visit) {
             queue.enqueue(node->rChild);
         }
     }
+}
+
+
+template <typename T> template <typename VST>
+void BinNode<T>::travPost(VST &visitor) {
+    if (HasLChild(*this)) {
+        this->lChild->travPost(visitor);
+    }
+    
+    if (HasRChild(*this)) {
+        this->rChild->travPost(visitor);
+    }
+    
+    visitor(this->data);
 }
 #endif /* BinaryNode_hpp */

@@ -16,7 +16,15 @@
 #include "../Chapter4_Stack/Stack.hpp"
 #include <vector>
 
+#define release(ptr_) \
+const BinTree<char> *ptr = ptr_; \
+//        delete ptr_; \
+        ptr_ = nullptr; \
+
+
+
 template <typename T> class BinaryTree {
+
 protected:
     int _size;
     BinaryNodePosition(T) _root;
@@ -105,8 +113,9 @@ public:
     bool operator== (BinaryTree<T> const& t) {
         return _root && t._root && (_root == t._root);
     }
-    
 };
+
+
 
 template <typename T>
 int BinaryTree<T>::updateHeight(BinaryNodePosition(T) x) {
@@ -147,7 +156,7 @@ BinaryNodePosition(T) BinaryTree<T>::insertAsRC(BinaryNodePosition(T) x, T const
 
 template <typename T>
 BinaryNodePosition(T) BinaryTree<T>::attachAsLC(BinaryNode<T> *x, BinaryTree<T> * tree) {
-    if (x->insertAsLC(tree)) {
+    if ((x->lChild = tree->root())) {
         x->lChild->parent = x;
     }
     
@@ -160,9 +169,11 @@ BinaryNodePosition(T) BinaryTree<T>::attachAsLC(BinaryNode<T> *x, BinaryTree<T> 
     return x;
 }
 
+
+
 template <typename T>
 BinaryNodePosition(T) BinaryTree<T>::attachAsRC(BinaryNode<T> *x, BinaryTree<T> * tree) {
-    if (x->insertAsRC(tree)) {
+    if ((x->rChild = tree->root())) {
         x->rChild->parent = x;
     }
     
@@ -202,7 +213,7 @@ void travIn_R(BinaryNodePosition(T) x, VST& visit) {
 
 template <typename T, typename VST>
 void travPost_R(BinaryNodePosition(T) x, VST& visit) {
-    if (!x) return;
+    if (x == nullptr) return;
     travPost_R(x->lChild, visit);
     travPost_R(x->rChild, visit);
     visit(x->data);
@@ -294,4 +305,16 @@ void travePost_I(BinaryNodePosition(T) root, VST& visit) {
         }
     }
 }
+        
+        template <typename T, typename VST>
+        void travePost(BinNodePosi(T) root, VST& visit) {
+            if (HasLChild(*root)) {
+                travePost(root->lChild, visit);
+            }
+            if (HasRChild(*root)) {
+                travePost(root->rChild, visit);
+            }
+            visit(root->data);
+        }
+        
 #endif /* BinaryTree_hpp */
