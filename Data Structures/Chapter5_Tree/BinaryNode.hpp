@@ -1,19 +1,19 @@
 //
-//  BinNode.hpp
+//  BinaryNode.hpp
 //  Data Structures
 //
 //  Created by Milo on 2018/9/4.
 //  Copyright © 2018年 Zeek. All rights reserved.
 //
 
-#ifndef BinNode_hpp
-#define BinNode_hpp
+#ifndef BinaryNode_hpp
+#define BinaryNode_hpp
 
 #include <stdio.h>
 #include <cstdlib>
 #include "Queue.hpp"
 
-#define BinNodePosi(T) BinNode<T>* //节点位置
+#define BinaryNodePosition(T) BinaryNode<T>* //节点位置
 #define stature(p) ((p) ? (p)->height : -1) //节点高度（和“空树高度为-1”约定一致）
 typedef enum {RB_RED, RB_BLACK} RBColor;    //节点颜色
 
@@ -46,23 +46,23 @@ IsLChild(x) ? (x).parent->lChild : (x).parent->rChild) \
 
 
 
-template <typename T> struct BinNode {
+template <typename T> struct BinaryNode {
     T data;
-    BinNodePosi(T) parent;
-    BinNodePosi(T) lChild;
-    BinNodePosi(T) rChild;
+    BinaryNodePosition(T) parent;
+    BinaryNodePosition(T) lChild;
+    BinaryNodePosition(T) rChild;
     int height;
     int npl;    //Null path length
     RBColor color;
     
-    BinNode() :parent(NULL), lChild(NULL), rChild(NULL), height(0), npl(1), color(RB_RED) {
+    BinaryNode() :parent(NULL), lChild(NULL), rChild(NULL), height(0), npl(1), color(RB_RED) {
         
     }
     
-    BinNode(T e,
-            BinNodePosi(T) p = nullptr,
-            BinNodePosi(T) lc = nullptr,
-            BinNodePosi(T) rc = nullptr,
+    BinaryNode(T e,
+            BinaryNodePosition(T) p = nullptr,
+            BinaryNodePosition(T) lc = nullptr,
+            BinaryNodePosition(T) rc = nullptr,
             int h = 0, int l = 1, RBColor c = RB_RED) {
         data = e;
         
@@ -87,20 +87,20 @@ template <typename T> struct BinNode {
         }
         return size;
     }
-    BinNodePosi(T) insertAsLC(T const &);
-    BinNodePosi(T) insertAsRC(T const &);
-    BinNodePosi(T) succ();
+    BinaryNodePosition(T) insertAsLC(T const &);
+    BinaryNodePosition(T) insertAsRC(T const &);
+    BinaryNodePosition(T) succ();
     
     template <typename VST> void travLevel(VST &);
     template <typename VST> void travPre(VST &);
     template <typename VST> void travIn(VST &);
     template <typename VST> void travPost(VST &);
     
-    bool operator< (BinNode const& bn) {
+    bool operator< (BinaryNode const& bn) {
         return data < bn.data;
     }
     
-    bool operator== (BinNode const& bn) {
+    bool operator== (BinaryNode const& bn) {
         return  data == bn.data;
     }
 public:
@@ -108,18 +108,18 @@ public:
 };
 
 template <typename T>
-BinNodePosi(T) BinNode<T>::insertAsLC(T const& e) {
-    return lChild = new BinNode(e, this);
+BinaryNodePosition(T) BinaryNode<T>::insertAsLC(T const& e) {
+    return lChild = new BinaryNode(e, this);
 }
 
 template <typename T>
-BinNodePosi(T) BinNode<T>::insertAsRC(T const& e) {
-    return rChild = new BinNode(e, this);
+BinaryNodePosition(T) BinaryNode<T>::insertAsRC(T const& e) {
+    return rChild = new BinaryNode(e, this);
 }
 
 template <typename T>
 template <typename VST>
-void BinNode<T>::travIn(VST & visit) {
+void BinaryNode<T>::travIn(VST & visit) {
     visit(this->data);
     switch (std::rand() % 5) {
 //        case 1:
@@ -134,16 +134,16 @@ void BinNode<T>::travIn(VST & visit) {
 //        case 4:
 //            travIn_I4(this, visit);
 //            break;
-//        default:
-//            travIn_R(this, visit);
-//            break;
+        default:
+            travIn_R(this, visit);
+            break;
     }
 }
 
 
 template <typename T> template <typename VST>
-void BinNode<T>::travLevel(VST &visit) {
-    Queue<BinNodePosi(T)> queue;
+void BinaryNode<T>::travLevel(VST &visit) {
+    Queue<BinaryNodePosition(T)> queue;
     queue.enqueue(this);
     while (!queue.empty()) {
         auto node = queue.dequeue();
@@ -157,4 +157,4 @@ void BinNode<T>::travLevel(VST &visit) {
         }
     }
 }
-#endif /* BinNode_hpp */
+#endif /* BinaryNode_hpp */

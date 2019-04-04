@@ -1,34 +1,35 @@
 //
-//  Tree.hpp
+//  BinaryTree.hpp
 //  Data Structures
 //
 //  Created by Milo on 2018/9/4.
 //  Copyright © 2018年 Zeek. All rights reserved.
 //
 
-#ifndef Tree_hpp
-#define Tree_hpp
+#ifndef BinaryTree_hpp
+#define BinaryTree_hpp
 
 #include <iostream>
 #include <algorithm>
-#include "BinNode.hpp"
+#include "BinaryNode.hpp"
 #include "Visitor.hpp"
 #include "../Chapter4_Stack/Stack.hpp"
 #include <vector>
-template <typename T> class BinTree {
+
+template <typename T> class BinaryTree {
 protected:
     int _size;
-    BinNodePosi(T) _root;
-    virtual int updateHeight(BinNodePosi(T) x);
-    void updateHeightAbove(BinNodePosi(T) x);
+    BinaryNodePosition(T) _root;
+    virtual int updateHeight(BinaryNodePosition(T) x);
+    void updateHeightAbove(BinaryNodePosition(T) x);
     
 public:
-    BinTree(): _size(0), _root(nullptr) {
+    BinaryTree(): _size(0), _root(nullptr) {
         
     }
     
     
-    ~BinTree() {
+    ~BinaryTree() {
         if (0 < _size) {
             remove(_root);
         }
@@ -42,26 +43,26 @@ public:
         return !_root;
     }
     
-    BinNodePosi(T) root() const {
+    BinaryNodePosition(T) root() const {
         return _root;
     }
     
-    BinNodePosi(T) insertAsRoot(T const& e);
-    BinNodePosi(T) insertAsLC(BinNodePosi(T) x, T const& e);
-    BinNodePosi(T) insertAsRC(BinNodePosi(T) x, T const& e);
-    BinNodePosi(T) attachAsLC(BinNodePosi(T) x,  BinTree<T>* );
-    BinNodePosi(T) attachAsRC(BinNodePosi(T) x,  BinTree<T>* );
+    BinaryNodePosition(T) insertAsRoot(T const& e);
+    BinaryNodePosition(T) insertAsLC(BinaryNodePosition(T) x, T const& e);
+    BinaryNodePosition(T) insertAsRC(BinaryNodePosition(T) x, T const& e);
+    BinaryNodePosition(T) attachAsLC(BinaryNodePosition(T) x,  BinaryTree<T>* );
+    BinaryNodePosition(T) attachAsRC(BinaryNodePosition(T) x,  BinaryTree<T>* );
     
-    int remove(BinNodePosi(T));
+    int remove(BinaryNodePosition(T));
     
-    BinTree<T>* secede(BinNodePosi(T) x) {
+    BinaryTree<T>* secede(BinaryNodePosition(T) x) {
         FromParentTo(*x) = nullptr; //切断父节点通过左|右子树的引用
         updateHeightAbove(x->parent);
         x->parent = nullptr;
         
         _size -= x->size();
         
-        auto tree = new BinTree<T>();
+        auto tree = new BinaryTree<T>();
         tree->_size = x->size();
         tree->_root = x;
         
@@ -97,23 +98,23 @@ public:
     }
     
     
-    bool operator< (BinTree<T> const& t) {
+    bool operator< (BinaryTree<T> const& t) {
         return _root && t._root && lt(_root, t._root);
     }
     
-    bool operator== (BinTree<T> const& t) {
+    bool operator== (BinaryTree<T> const& t) {
         return _root && t._root && (_root == t._root);
     }
     
 };
 
 template <typename T>
-int BinTree<T>::updateHeight(BinNodePosi(T) x) {
+int BinaryTree<T>::updateHeight(BinaryNodePosition(T) x) {
     return x->height = 1 + std::max(stature(x->lChild), stature(x->rChild));
 }
 
 template <typename T>
-void BinTree<T>::updateHeightAbove(BinNodePosi(T) x) {
+void BinaryTree<T>::updateHeightAbove(BinaryNodePosition(T) x) {
     while (x) {
         updateHeight(x);
         x = x->parent;
@@ -121,14 +122,14 @@ void BinTree<T>::updateHeightAbove(BinNodePosi(T) x) {
 }
 
 template <typename T>
-BinNodePosi(T) BinTree<T>::insertAsRoot(const T &e) {
+BinaryNodePosition(T) BinaryTree<T>::insertAsRoot(const T &e) {
     _size = 1;
-    return _root = new BinNode<T>(e);
+    return _root = new BinaryNode<T>(e);
 }
 
 
 template <typename T>
-BinNodePosi(T) BinTree<T>::insertAsLC(BinNodePosi(T) x, T const& e) {
+BinaryNodePosition(T) BinaryTree<T>::insertAsLC(BinaryNodePosition(T) x, T const& e) {
     _size ++;
     x->insertAsLC(e);
     updateHeightAbove(x);
@@ -137,7 +138,7 @@ BinNodePosi(T) BinTree<T>::insertAsLC(BinNodePosi(T) x, T const& e) {
 
 
 template <typename T>
-BinNodePosi(T) BinTree<T>::insertAsRC(BinNodePosi(T) x, T const& e) {
+BinaryNodePosition(T) BinaryTree<T>::insertAsRC(BinaryNodePosition(T) x, T const& e) {
     _size ++;
     x->insertAsRC(e);
     updateHeightAbove(x);
@@ -145,7 +146,7 @@ BinNodePosi(T) BinTree<T>::insertAsRC(BinNodePosi(T) x, T const& e) {
 }
 
 template <typename T>
-BinNodePosi(T) BinTree<T>::attachAsLC(BinNode<T> *x, BinTree<T> * tree) {
+BinaryNodePosition(T) BinaryTree<T>::attachAsLC(BinaryNode<T> *x, BinaryTree<T> * tree) {
     if (x->insertAsLC(tree)) {
         x->lChild->parent = x;
     }
@@ -160,7 +161,7 @@ BinNodePosi(T) BinTree<T>::attachAsLC(BinNode<T> *x, BinTree<T> * tree) {
 }
 
 template <typename T>
-BinNodePosi(T) BinTree<T>::attachAsRC(BinNode<T> *x, BinTree<T> * tree) {
+BinaryNodePosition(T) BinaryTree<T>::attachAsRC(BinaryNode<T> *x, BinaryTree<T> * tree) {
     if (x->insertAsRC(tree)) {
         x->rChild->parent = x;
     }
@@ -175,12 +176,12 @@ BinNodePosi(T) BinTree<T>::attachAsRC(BinNode<T> *x, BinTree<T> * tree) {
 }
 
 template <typename T>
-int BinTree<T>::remove(BinNode<T> * x) {
+int BinaryTree<T>::remove(BinaryNode<T> * x) {
     return  -1;
 }
 
 template <typename T, typename VST>
-void travPre_R(BinNodePosi(T) x, VST& visit) {
+void travPre_R(BinaryNodePosition(T) x, VST& visit) {
     if (!x) {
       return;
     }
@@ -190,7 +191,7 @@ void travPre_R(BinNodePosi(T) x, VST& visit) {
 }
 
 template <typename T, typename VST>
-void travIn_R(BinNodePosi(T) x, VST& visit) {
+void travIn_R(BinaryNodePosition(T) x, VST& visit) {
     if (!x) return;
     
     travIn_R(x->lChild, visit);
@@ -200,7 +201,7 @@ void travIn_R(BinNodePosi(T) x, VST& visit) {
 
 
 template <typename T, typename VST>
-void travPost_R(BinNodePosi(T) x, VST& visit) {
+void travPost_R(BinaryNodePosition(T) x, VST& visit) {
     if (!x) return;
     travPost_R(x->lChild, visit);
     travPost_R(x->rChild, visit);
@@ -208,8 +209,8 @@ void travPost_R(BinNodePosi(T) x, VST& visit) {
 }
 
 template <typename T, typename VST>
-void travPre_I(BinNodePosi(T) x, VST& visit) {
-    Stack<BinNodePosi(T)> stack;
+void travPre_I(BinaryNodePosition(T) x, VST& visit) {
+    Stack<BinaryNodePosition(T)> stack;
     while (true) {
         visit(x->data);
         if (x->rChild != nullptr) {
@@ -227,8 +228,8 @@ void travPre_I(BinNodePosi(T) x, VST& visit) {
 }
 
 template <typename T, typename VST>
-void travPre_I_teacher(BinNodePosi(T) x, VST& visit) {
-    Stack<BinNodePosi(T)> stack;
+void travPre_I_teacher(BinaryNodePosition(T) x, VST& visit) {
+    Stack<BinaryNodePosition(T)> stack;
     if(x != nullptr) {
         stack.push(x);
     }
@@ -245,7 +246,7 @@ void travPre_I_teacher(BinNodePosi(T) x, VST& visit) {
 }
 
 template <typename T>
-void travIn_I_leftMost(BinNodePosi(T) root, std::vector<BinNodePosi(T)>& stack) {
+void travIn_I_leftMost(BinaryNodePosition(T) root, std::vector<BinaryNodePosition(T)>& stack) {
     while (root != nullptr) {
         stack.push_back(root);
         root = root->lChild;
@@ -253,8 +254,8 @@ void travIn_I_leftMost(BinNodePosi(T) root, std::vector<BinNodePosi(T)>& stack) 
 }
 
 template <typename T, typename VST>
-void travIn_I(BinNodePosi(T) root, VST& visit) {
-    std::vector<BinNodePosi(T)> stack;
+void travIn_I(BinaryNodePosition(T) root, VST& visit) {
+    std::vector<BinaryNodePosition(T)> stack;
     while (true) {
         travIn_I_leftMost(root, stack);
         if (stack.empty()) {
@@ -268,7 +269,7 @@ void travIn_I(BinNodePosi(T) root, VST& visit) {
 }
 
 template <typename T>
-void travPo_I_leftMost(BinNodePosi(T) root, std::vector<BinNodePosi(T)>& stack) {
+void travPo_I_leftMost(BinaryNodePosition(T) root, std::vector<BinaryNodePosition(T)>& stack) {
     while (root->lChild != nullptr) {
         stack.push_back(root);
         root = root->lChild;
@@ -276,8 +277,8 @@ void travPo_I_leftMost(BinNodePosi(T) root, std::vector<BinNodePosi(T)>& stack) 
 }
 
 template <typename T, typename VST>
-void travePost_I(BinNodePosi(T) root, VST& visit) {
-    std::vector<BinNodePosi(T)> stack;
+void travePost_I(BinaryNodePosition(T) root, VST& visit) {
+    std::vector<BinaryNodePosition(T)> stack;
     while (true) {
         travPo_I_leftMost(root, stack);
         if (stack.empty()) {
@@ -293,4 +294,4 @@ void travePost_I(BinNodePosi(T) root, VST& visit) {
         }
     }
 }
-#endif /* Tree_hpp */
+#endif /* BinaryTree_hpp */

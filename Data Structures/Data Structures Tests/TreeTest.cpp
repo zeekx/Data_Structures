@@ -11,7 +11,7 @@
 
 
 #include <gtest/gtest.h>
-#include "Tree.hpp"
+#include "BinaryTree.hpp"
 
 namespace {
     template <typename T>
@@ -55,9 +55,9 @@ namespace {
             
         }
         
-        BinTree<int> tree;
+        BinaryTree<int> tree;
         
-        BinTree<char> charTree;
+        BinaryTree<char> charTree;
     };
     
     TEST_F(BinTreeTest, Root) {

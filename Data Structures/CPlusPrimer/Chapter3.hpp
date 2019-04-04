@@ -10,5 +10,7 @@
 #define Chapter3_hpp
 
 #include <stdio.h>
-
+void UpperCaption();
+void UpperFirstWord();
+void outputText();
 #endif /* Chapter3_hpp */
