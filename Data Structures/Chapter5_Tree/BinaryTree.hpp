@@ -17,9 +17,9 @@
 #include <vector>
 
 #define release(ptr_) \
-const BinTree<char> *ptr = ptr_; \
-//        delete ptr_; \
-        ptr_ = nullptr; \
+const BinaryTree<char> *ptr = ptr_; \
+        delete ptr_; \
+        ptr_ = nullptr;
 
 
 
@@ -306,15 +306,15 @@ void travePost_I(BinaryNodePosition(T) root, VST& visit) {
     }
 }
         
-        template <typename T, typename VST>
-        void travePost(BinNodePosi(T) root, VST& visit) {
-            if (HasLChild(*root)) {
-                travePost(root->lChild, visit);
-            }
-            if (HasRChild(*root)) {
-                travePost(root->rChild, visit);
-            }
-            visit(root->data);
-        }
+template <typename T, typename VST>
+void travePost(BinaryNodePosition(T) root, VST& visit) {
+    if (HasLChild(*root)) {
+        travePost(root->lChild, visit);
+    }
+    if (HasRChild(*root)) {
+        travePost(root->rChild, visit);
+    }
+    visit(root->data);
+}
         
 #endif /* BinaryTree_hpp */

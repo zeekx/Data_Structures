@@ -157,9 +157,8 @@ void BinaryNode<T>::travLevel(VST &visit) {
     }
 }
 
-
 template <typename T> template <typename VST>
-void BinNode<T>::travPost(VST &visitor) {
+void BinaryNode<T>::travPost(VST &visitor) {
     if (HasLChild(*this)) {
         this->lChild->travPost(visitor);
     }
@@ -170,4 +169,5 @@ void BinNode<T>::travPost(VST &visitor) {
     
     visitor(this->data);
 }
+
 #endif /* BinaryNode_hpp */

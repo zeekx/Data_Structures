@@ -142,17 +142,17 @@ namespace {
         std::string exp("ab+cde+*+"); //a+b+c*(d+e)
         std::string operators = "+*";
 
-        Stack<BinTree<char> *> stack;
+        Stack<BinaryTree<char> *> stack;
         for (auto ch : exp) {
             if (operators.find(ch) != std::string::npos) {
-                auto tree = new BinTree<char>();
+                auto tree = new BinaryTree<char>();
                 tree->insertAsRoot(ch);
                 
                 tree->attachAsRC(tree->root(), stack.pop());
                 tree->attachAsLC(tree->root(), stack.pop());
                 stack.push(tree);
             } else if (std::isalpha(ch)) {
-                auto subtree = new BinTree<char>();
+                auto subtree = new BinaryTree<char>();
                 subtree->insertAsRoot(ch);
                 stack.push(subtree);
             }
