@@ -8,7 +8,7 @@
 
 #include "Tree.hpp"
 #include <stdlib.h>
-#include "../DSaAA/ErrorHandle.h"
+#include "../DSaAA/ErrorHandle.hpp"
 
 struct TreeNode {
     ElementType element;

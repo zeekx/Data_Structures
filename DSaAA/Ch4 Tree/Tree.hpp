@@ -14,7 +14,8 @@
 typedef char ElementType;
 typedef struct TreeNode *PtrToNode;
 
-struct TreeNode;
+//struct TreeNode;
+
 typedef PtrToNode Tree;
 
 Tree TreeCreate(ElementType);

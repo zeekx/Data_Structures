@@ -12,6 +12,5 @@
 
 TEST(Tree, create) {
     Tree tree = TreeCreate(65);
-
     ASSERT_FALSE(tree == NULL);
 }
