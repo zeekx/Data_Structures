@@ -8,8 +8,19 @@
 
 #include <stdio.h>
 
+void myprint(const char* format, ...) {
+    va_list list;
+    va_start(list);
+    
+    va_end(list);
+    printf(format, list);
+}
+
+
+
 int main(int argc, const char * argv[]) {
     // insert code here...
-    printf("Hello, World!\n");
+    myprint("Hello, World! Zhao:%d\n", 3);
+    
     return 0;
 }
