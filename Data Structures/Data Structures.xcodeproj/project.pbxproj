@@ -731,10 +731,11 @@
 			};
 			buildConfigurationList = A518C5301DC7522000BEF286 /* Build configuration list for PBXProject "Data Structures" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A518C52C1DC7522000BEF286;
 			productRefGroup = A518C5361DC7522000BEF286 /* Products */;

@@ -9,8 +9,13 @@
 #include <iostream>
 #include "Complex.hpp"
 
+using namespace std;
+
 int main(int argc, const char * argv[]) {
-    Complex c;
-    cout << c;
+    Complex c(1, 1);
+    cout << c << endl;
+    
+    const Complex cc;
+    -cc;
     return 0;
 }

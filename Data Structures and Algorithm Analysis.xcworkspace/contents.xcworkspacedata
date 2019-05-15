@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CPP/CPP.xcodeproj">
+      location = "group:CppPrimer/CppPrimer.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:CPP/CPP.xcodeproj">
