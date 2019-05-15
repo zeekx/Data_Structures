@@ -33,6 +33,7 @@ public:
         return im;
     }
     
+    // Do assignment plus
     friend Complex& __doapl(Complex*, const Complex&);
 };
 
@@ -48,5 +49,9 @@ inline Complex& __doapl(Complex* ths, const Complex& r) {
     ths->re += r.re;
     ths->im += r.im;
     return *ths;
+}
+
+inline Complex& Complex::operator+=(const Complex & r) {
+    return __doapl(this, r);
 }
 #endif /* Complex_hpp */
